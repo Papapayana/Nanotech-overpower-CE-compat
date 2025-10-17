@@ -94,10 +94,8 @@
 		</FireModes>
 
 		<weaponTags>
-			<li>CE_Sniper</li>
-			<li>SpacerGun</li>
-			<li>HiTechGun</li>
-			<li>CE_AI_NanoWeapon</li>
+			<li>CE_AI_SR</li>
+			<li>Bipod_DMR</li>
 		</weaponTags>
 
 		<researchPrerequisite>Nanotechnology</researchPrerequisite>
@@ -105,4 +103,5 @@
 	</Operation>
 
 </Patch>
+
 
