@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <!-- ==================== Nano Ammo ==================== -->
-
+  <!-- ==================== MAIN NANOTECH AMMO ==================== -->
   <ThingCategoryDef>
     <defName>Ammo_Nanotech</defName>
     <label>nanotech cartridge</label>
@@ -52,7 +51,7 @@
       <damageDef>Bullet</damageDef>
       <speed>180</speed>
       <dropsCasings>false</dropsCasings>
-    </projectile>    
+    </projectile>
   </ThingDef>
 
   <ThingDef ParentName="CE_NanobulletBase">
@@ -64,38 +63,6 @@
       <armorPenetrationBlunt>500</armorPenetrationBlunt>
     </projectile>
   </ThingDef>
-
-  <!-- ==================== Nano Lance EMP Projectile ==================== -->
-
-  <ThingDef ParentName="BaseBullet">
-    <defName>Bullet_EMPNano</defName>
-    <label>EMP nanopulse</label>
-    <graphicData>
-      <texPath>Things/Projectile/ChargeLanceShot</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <projectile Class="CombatExtended.ProjectilePropertiesCE">
-      <damageDef>EMP</damageDef>
-      <damageAmountBase>100</damageAmountBase>
-      <armorPenetrationBase>1</armorPenetrationBase>
-      <speed>350</speed>
-      <stoppingPower>1</stoppingPower>
-    </projectile>
-    <comps>
-      <li Class="CompProperties_SpawnExplosion">
-        <explosionDamageType>EMP</explosionDamageType>
-        <explosionDamage>50</explosionDamage>
-        <explosionRadius>5</explosionRadius>
-        <explosionHeat>0</explosionHeat>
-        <explosionSound>Explosion_Small</explosionSound>
-        <spawnChance>1.0</spawnChance>
-        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
-        <doVisualEffects>true</doVisualEffects>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <!-- ==================== Ammo Crafting Recipe ==================== -->
 
   <RecipeDef ParentName="AmmoRecipeBase">
     <defName>MakeAmmo_Nanotech</defName>
@@ -118,6 +85,304 @@
     </fixedIngredientFilter>
     <products>
       <Ammo_NanoblasterBullet>500</Ammo_NanoblasterBullet>
+    </products>
+    <workAmount>1</workAmount>
+    <recipeUsers>
+      <li>Nanofabricator</li>
+    </recipeUsers>
+  </RecipeDef>
+
+
+  <!-- ==================== EMP NANOTECH AMMO ==================== -->
+  <ThingCategoryDef>
+    <defName>Ammo_EMPNanotech</defName>
+    <label>EMP nanotech cartridge</label>
+    <parent>AmmoRifles</parent>
+    <iconPath>Things/Ammo/Charged/MediumIon</iconPath>
+  </ThingCategoryDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_EMPNano</defName>
+    <label>EMP nanotech cartridge</label>
+    <ammoTypes>
+      <Ammo_EMPNano>CE_EMPNano</Ammo_EMPNano>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="Ammo_EMPNanoBase" ParentName="SmallAmmoBase" Abstract="True">
+    <description>Nanotech projectile designed to emit EMP effects on impact.</description>
+    <statBases>
+      <Mass>0.002</Mass>
+      <Bulk>0.002</Bulk>
+    </statBases>
+    <thingCategories>
+      <li>Ammo_EMPNanotech</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_EMPNanoBase">
+    <defName>Ammo_EMPNano</defName>
+    <label>EMP nanotech cartridge</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/Ion</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.25</MarketValue>
+    </statBases>
+    <ammoClass>Energy</ammoClass>
+    <cookOffProjectile>CE_EMPNano</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Name="CE_EMPNanoBase" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>EMP</damageDef>
+      <speed>200</speed>
+      <dropsCasings>false</dropsCasings>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="CE_EMPNanoBase">
+    <defName>CE_EMPNano</defName>
+    <label>EMP nanotech bullet</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>50</damageAmountBase>
+      <armorPenetrationBlunt>50</armorPenetrationBlunt>
+      <armorPenetrationSharp>50</armorPenetrationSharp>
+      <damageDef>EMP</damageDef>
+      <EMP>1</EMP>
+      <speed>200</speed>
+      <explosionDef>Explosion_EMP_AOE</explosionDef>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseExplosionCE">
+    <defName>Explosion_EMP_AOE</defName>
+    <label>EMP blast</label>
+    <graphicData>
+      <texPath>Things/Effects/EMP_Blast</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <explosion>
+      <damageType>EMP</damageType>
+      <damageAmount>25</damageAmount>
+      <armorPenetration>50</armorPenetration>
+      <radius>5</radius>
+      <soundExplosion>EMP_Explosion_Sound</soundExplosion>
+      <soundHitPawn>EMP_Hit_Sound</soundHitPawn>
+      <soundHitBuilding>EMP_Hit_Sound</soundHitBuilding>
+      <canAffectPawns>true</canAffectPawns>
+      <canAffectBuildings>true</canAffectBuildings>
+      <EMP>1</EMP>
+    </explosion>
+  </ThingDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_EMPNano</defName>
+    <label>make EMP nanotech cartridge x100</label>
+    <jobString>Assembling EMP nanotech cartridges.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>NT_Nanobots</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>NT_Nanobots</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_EMPNano>100</Ammo_EMPNano>
+    </products>
+    <workAmount>2</workAmount>
+    <recipeUsers>
+      <li>Nanofabricator</li>
+    </recipeUsers>
+  </RecipeDef>
+
+
+  <!-- ==================== STUNNER NANOTECH AMMO ==================== -->
+  <ThingCategoryDef>
+    <defName>Ammo_StunnerNanotech</defName>
+    <label>stunner nanotech cartridge</label>
+    <parent>AmmoRifles</parent>
+    <iconPath>Things/Ammo/Charged/MediumIon</iconPath>
+  </ThingCategoryDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_StunnerNano</defName>
+    <label>stunner nanotech cartridge</label>
+    <ammoTypes>
+      <Ammo_StunnerNano>CE_StunnerNano</Ammo_StunnerNano>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="Ammo_StunnerNanoBase" ParentName="SmallAmmoBase" Abstract="True">
+    <description>Nanotech projectile designed to incapacitate a single target on impact.</description>
+    <statBases>
+      <Mass>0.002</Mass>
+      <Bulk>0.002</Bulk>
+    </statBases>
+    <thingCategories>
+      <li>Ammo_StunnerNanotech</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_StunnerNanoBase">
+    <defName>Ammo_StunnerNano</defName>
+    <label>stunner nanotech cartridge</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/Ion</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.2</MarketValue>
+    </statBases>
+    <ammoClass>Energy</ammoClass>
+    <cookOffProjectile>CE_StunnerNano</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>CE_StunnerNano</defName>
+    <label>stunner nanotech bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>5</damageAmountBase>
+      <armorPenetrationBlunt>2</armorPenetrationBlunt>
+      <armorPenetrationSharp>2</armorPenetrationSharp>
+      <damageDef>Bullet</damageDef>
+      <Stun>1</Stun>
+      <speed>180</speed>
+    </projectile>
+  </ThingDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_StunnerNano</defName>
+    <label>make stunner nanotech cartridge x200</label>
+    <jobString>Assembling stunner nanotech cartridges.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>NT_Nanobots</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>NT_Nanobots</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_StunnerNano>200</Ammo_StunnerNano>
+    </products>
+    <workAmount>2</workAmount>
+    <recipeUsers>
+      <li>Nanofabricator</li>
+    </recipeUsers>
+  </RecipeDef>
+
+
+  <!-- ==================== NANOSHOT (SHOTGUN) AMMO ==================== -->
+  <ThingCategoryDef>
+    <defName>Ammo_Nanoshot</defName>
+    <label>nanoshot shell</label>
+    <parent>AmmoShotguns</parent>
+    <iconPath>Things/Ammo/Charged/MediumIon</iconPath>
+  </ThingCategoryDef>
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_Nanoshot</defName>
+    <label>nanoshot shell</label>
+    <ammoTypes>
+      <Ammo_NanoshotShell>CE_NanoshotPellet</Ammo_NanoshotShell>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="Ammo_NanoshotBase" ParentName="ShotgunShellBase" Abstract="True">
+    <description>Nanotechnological shotgun shell containing a swarm of self-guiding pellets.</description>
+    <statBases>
+      <Mass>0.005</Mass>
+      <Bulk>0.005</Bulk>
+    </statBases>
+    <thingCategories>
+      <li>Ammo_Nanoshot</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo_NanoshotBase">
+    <defName>Ammo_NanoshotShell</defName>
+    <label>nanoshot shell</label>
+    <graphicData>
+      <texPath>Things/Ammo/Charged/Ion</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.15</MarketValue>
+    </statBases>
+    <ammoClass>Pellet</ammoClass>
+    <cookOffProjectile>CE_NanoshotPellet</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Name="CE_NanoshotPelletBase" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <speed>140</speed>
+      <dropsCasings>false</dropsCasings>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="CE_NanoshotPelletBase">
+    <defName>CE_NanoshotPellet</defName>
+    <label>nanoshot pellet</label>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>35</damageAmountBase>
+      <armorPenetrationSharp>60</armorPenetrationSharp>
+      <armorPenetrationBlunt>60</armorPenetrationBlunt>
+      <pelletCount>12</pelletCount>
+      <spreadMult>1.4</spreadMult>
+    </projectile>
+  </ThingDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_Nanoshot</defName>
+    <label>make nanoshot shells x250</label>
+    <jobString>Assembling nanoshot shells.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>NT_Nanobots</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>NT_Nanobots</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_NanoshotShell>250</Ammo_NanoshotShell>
     </products>
     <workAmount>1</workAmount>
     <recipeUsers>
