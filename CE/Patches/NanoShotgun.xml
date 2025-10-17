@@ -43,4 +43,56 @@
 			<SightsEfficiency>1.5</SightsEfficiency>
 			<NightVisionEfficiency_Weapon>1.2</NightVisionEfficiency_Weapon>
 			<ShotSpread>0</ShotSpread>
-			<SwayFactor>0</SwayFa
+			<SwayFactor>0</SwayFactor>
+			<Bulk>0.1</Bulk>
+			<WorkToMake>150</WorkToMake>
+		</statBases>
+
+		<costList>
+			<NT_Nanobots>2</NT_Nanobots>
+		</costList>
+
+		<Properties>
+			<recoilAmount>0</recoilAmount>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<defaultProjectile>CE_NanoshotPellet</defaultProjectile>
+			<warmupTime>2</warmupTime>
+			<range>25</range>
+			<ticksBetweenBurstShots>-1</ticksBetweenBurstShots>
+			<burstShotCount>5</burstShotCount>
+			<soundCast>ChargeLance_Fire</soundCast>
+			<soundCastTail>GunTail_Heavy</soundCastTail>
+			<muzzleFlashScale>7</muzzleFlashScale>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</Properties>
+
+		<AmmoUser>
+			<magazineSize>50</magazineSize>
+			<reloadTime>6</reloadTime>
+			<ammoSet>AmmoSet_Nanoshot</ammoSet>
+			<reloadOneAtATime>false</reloadOneAtATime>
+		</AmmoUser>
+
+		<FireModes>
+			<aimedBurstShotCount>3</aimedBurstShotCount>
+			<aiUseBurstMode>true</aiUseBurstMode>
+			<aiAimMode>AimedShot</aiAimMode>
+			<noSingleShot>true</noSingleShot>
+			<noSnapshot>true</noSnapshot>
+		</FireModes>
+
+		<weaponTags>
+			<li>CE_Shotgun</li>
+			<li>SpacerGun</li>
+			<li>HiTechGun</li>
+			<li>CE_AI_NanoWeapon</li>
+		</weaponTags>
+
+		<researchPrerequisite>Nanotechnology</researchPrerequisite>
+		<AllowWithRunAndGun>true</AllowWithRunAndGun>
+	</Operation>
+
+</Patch>
