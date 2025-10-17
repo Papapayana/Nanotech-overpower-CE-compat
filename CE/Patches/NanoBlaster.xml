@@ -23,12 +23,21 @@
 					<label>barrel</label>
 					<capacities>
 						<li>Blunt</li>
-						<li>Poke</li>
 					</capacities>
 					<power>10</power>
 					<cooldownTime>1</cooldownTime>
 					<armorPenetrationBlunt>2.5</armorPenetrationBlunt>
 					<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>muzzle</label>
+					<capacities>
+						<li>Poke</li>
+					</capacities>
+					<power>8</power>
+					<cooldownTime>1.55</cooldownTime>
+					<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
 				</li>
 			</tools>
 		</value>
@@ -98,3 +107,4 @@
 	</Operation>
 
 </Patch>
+
