@@ -11,7 +11,7 @@
 				<li Class="CombatExtended.ToolCE">
 					<label>barrel</label>
 					<capacities>
-						<li>Poke</li>
+						<li>blunt</li>
 					</capacities>
 					<power>20</power>
 					<cooldownTime>1.2</cooldownTime>
@@ -102,6 +102,7 @@
 	</Operation>
 
 </Patch>
+
 
 
 
