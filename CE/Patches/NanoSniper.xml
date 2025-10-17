@@ -97,11 +97,11 @@
 			<li>CE_AI_SR</li>
 			<li>Bipod_DMR</li>
 		</weaponTags>
-
-		<researchPrerequisite>Nanotechnology</researchPrerequisite>
+		
 		<AllowWithRunAndGun>false</AllowWithRunAndGun>
 	</Operation>
 
 </Patch>
+
 
 
