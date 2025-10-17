@@ -30,14 +30,14 @@
 					<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
 				</li>
 				<li Class="CombatExtended.ToolCE">
-					<label>scope</label>
+					<label>muzzle</label>
 					<capacities>
 						<li>Poke</li>
 					</capacities>
-					<power>5</power>
-					<cooldownTime>1.0</cooldownTime>
-					<armorPenetrationBlunt>1.5</armorPenetrationBlunt>
-					<linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
+					<power>8</power>
+					<cooldownTime>1.55</cooldownTime>
+					<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
 				</li>
 			</tools>
 		</value>
@@ -106,3 +106,4 @@
 	</Operation>
 
 </Patch>
+
