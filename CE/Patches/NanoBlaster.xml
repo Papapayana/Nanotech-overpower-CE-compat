@@ -101,10 +101,10 @@
 			<li>CE_AI_Nanotech</li>
 		</weaponTags>
 
-		<researchPrerequisite>Nanotechnology</researchPrerequisite>
 		<AllowWithRunAndGun>true</AllowWithRunAndGun>
 
 	</Operation>
 
 </Patch>
+
 
