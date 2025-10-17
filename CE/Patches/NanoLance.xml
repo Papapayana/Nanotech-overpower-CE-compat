@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Replace the NanoLance's tools with CE-compatible ToolCE entries -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>
+			Defs/ThingDef[defName="NanoLance"]/tools
+		</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>barrel</label>
+					<capacities>
+						<li>Poke</li>
+						<li>Blunt</li>
+					</capacities>
+					<power>20</power>
+					<cooldownTime>1.2</cooldownTime>
+					<armorPenetrationBlunt>6.0</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>stock</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>10</power>
+					<cooldownTime>1.5</cooldownTime>
+					<armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>scope</label>
+					<capacities>
+						<li>Poke</li>
+					</capacities>
+					<power>5</power>
+					<cooldownTime>1.0</cooldownTime>
+					<armorPenetrationBlunt>1.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<!-- Make NanoLance Combat Extended compatible -->
+	<Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+		<defName>NanoLance</defName>
+
+		<statBases>
+			<Mass>0.1</Mass>
+			<RangedWeapon_Cooldown>0.01</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.0</SightsEfficiency>
+			<NightVisionEfficiency_Weapon>1.5</NightVisionEfficiency_Weapon>
+			<ShotSpread>0</ShotSpread>
+			<SwayFactor>0</SwayFactor>
+			<Bulk>0.1</Bulk>
+			<WorkToMake>220</WorkToMake>
+		</statBases>
+
+		<costList>
+			<NT_Nanobots>3</NT_Nanobots>
+		</costList>
+
+		<Properties>
+			<recoilAmount>0</recoilAmount>
+			<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<defaultProjectile>CE_EMPNano</defaultProjectile>
+			<warmupTime>0.01</warmupTime>
+			<range>70</range>
+			<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+			<burstShotCount>1</burstShotCount>
+			<soundCast>ChargeLance_Fire</soundCast>
+			<soundCastTail>GunTail_Heavy</soundCastTail>
+			<muzzleFlashScale>8</muzzleFlashScale>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</Properties>
+
+		<AmmoUser>
+			<magazineSize>15</magazineSize>
+			<reloadTime>10</reloadTime>
+			<ammoSet>AmmoSet_EMPNano</ammoSet>
+			<reloadOneAtATime>true</reloadOneAtATime>
+		</AmmoUser>
+
+		<FireModes>
+			<aimedBurstShotCount>1</aimedBurstShotCount>
+			<aiUseBurstMode>true</aiUseBurstMode>
+			<aiAimMode>AimedShot</aiAimMode>
+			<noSingleShot>false</noSingleShot>
+			<noSnapshot>true</noSnapshot>
+		</FireModes>
+
+		<weaponTags>
+			<li>CE_Lance</li>
+			<li>SpacerGun</li>
+			<li>HiTechGun</li>
+			<li>CE_AI_NanoWeapon</li>
+		</weaponTags>
+
+		<researchPrerequisite>Nanotechnology</researchPrerequisite>
+		<AllowWithRunAndGun>false</AllowWithRunAndGun>
+	</Operation>
+
+</Patch>

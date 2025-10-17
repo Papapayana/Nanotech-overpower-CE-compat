@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Replace the NanoShotgun's tools with CE-compatible ToolCE melee entries -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>
+			Defs/ThingDef[defName="NanoShotgun"]/tools
+		</xpath>
+		<value>
+			<tools>
+				<li Class="CombatExtended.ToolCE">
+					<label>barrel cluster</label>
+					<capacities>
+						<li>Blunt</li>
+						<li>Poke</li>
+					</capacities>
+					<power>10</power>
+					<cooldownTime>1.5</cooldownTime>
+					<armorPenetrationBlunt>2.5</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>stock</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>8</power>
+					<cooldownTime>1.8</cooldownTime>
+					<armorPenetrationBlunt>2.0</armorPenetrationBlunt>
+					<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+				</li>
+			</tools>
+		</value>
+	</Operation>
+
+	<!-- Make NanoShotgun Combat Extended compatible -->
+	<Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+		<defName>NanoShotgun</defName>
+
+		<statBases>
+			<Mass>0.1</Mass>
+			<RangedWeapon_Cooldown>0.2</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.5</SightsEfficiency>
+			<NightVisionEfficiency_Weapon>1.2</NightVisionEfficiency_Weapon>
+			<ShotSpread>0</ShotSpread>
+			<SwayFactor>0</SwayFa
