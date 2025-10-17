@@ -9,10 +9,9 @@
 		<value>
 			<tools>
 				<li Class="CombatExtended.ToolCE">
-					<label>barrel cluster</label>
+					<label>barrel</label>
 					<capacities>
 						<li>Blunt</li>
-						<li>Poke</li>
 					</capacities>
 					<power>12</power>
 					<cooldownTime>0.9</cooldownTime>
@@ -95,15 +94,12 @@
 		</FireModes>
 
 		<weaponTags>
-			<li>CE_MachineGun</li>
-			<li>SpacerGun</li>
-			<li>HiTechGun</li>
-			<li>CE_AI_NanoWeapon</li>
+			<li>CE_AI_Suppressive</li>
 		</weaponTags>
 
-		<researchPrerequisite>Nanotechnology</researchPrerequisite>
 		<AllowWithRunAndGun>true</AllowWithRunAndGun>
 	</Operation>
 
 </Patch>
+
 
