@@ -12,7 +12,6 @@
 					<label>barrel</label>
 					<capacities>
 						<li>Poke</li>
-						<li>Blunt</li>
 					</capacities>
 					<power>20</power>
 					<cooldownTime>1.2</cooldownTime>
@@ -99,10 +98,10 @@
 			<li>Bipod_DMR</li>
 		</weaponTags>
 
-		<researchPrerequisite>Nanotechnology</researchPrerequisite>
 		<AllowWithRunAndGun>false</AllowWithRunAndGun>
 	</Operation>
 
 </Patch>
+
 
 
