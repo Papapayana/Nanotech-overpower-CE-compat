@@ -94,15 +94,13 @@
 		</FireModes>
 
 		<weaponTags>
-			<li>CE_Shotgun</li>
-			<li>SpacerGun</li>
-			<li>HiTechGun</li>
-			<li>CE_AI_NanoWeapon</li>
+			<li>CE_AI_BROOM</li>
 		</weaponTags>
 
-		<researchPrerequisite>Nanotechnology</researchPrerequisite>
+		
 		<AllowWithRunAndGun>true</AllowWithRunAndGun>
 	</Operation>
 
 </Patch>
+
 
