@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[HYE] Nanotech Overpower</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="NanoShieldBelt"]/statBases</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="NanoShieldBelt"]</xpath>
+            <value>
+              <statBases />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="NanoShieldBelt"]/statBases</xpath>
+          <value>
+            <statBases>
+              <MaxHitPoints>99999</MaxHitPoints>
+              <Flammability>0</Flammability>
+              <DeteriorationRate>0</DeteriorationRate>
+              <Beauty>-3</Beauty>
+              <Mass>0.1</Mass>
+              <WorkToMake>80</WorkToMake>
+              <EnergyShieldRechargeRate>9999</EnergyShieldRechargeRate>
+              <EnergyShieldEnergyMax>99999</EnergyShieldEnergyMax>
+              <EquipDelay>0.1</EquipDelay>
+            </statBases>
+          </value>
+        </li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="NanoShieldBelt"]</xpath>
+          <value>
+            <li Class="CombatExtended.PartialArmorExt">
+              <stats />
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

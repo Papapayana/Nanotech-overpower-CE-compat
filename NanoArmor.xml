@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[HYE] Nanotech Overpower</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="NanoArmor"]/statBases</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="NanoArmor"]</xpath>
+            <value>
+              <statBases />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="NanoArmor"]/statBases</xpath>
+          <value>
+            <statBases>
+              <MaxHitPoints>99999</MaxHitPoints>
+              <Flammability>0</Flammability>
+              <DeteriorationRate>0</DeteriorationRate>
+              <Beauty>50</Beauty>
+              <Mass>0.01</Mass>
+              <ArmorRating_Sharp>9999</ArmorRating_Sharp>
+              <ArmorRating_Blunt>9999</ArmorRating_Blunt>
+              <ArmorRating_Heat>9999</ArmorRating_Heat>
+              <Insulation_Cold>2500</Insulation_Cold>
+              <Insulation_Heat>2500</Insulation_Heat>
+              <EquipDelay>0</EquipDelay>
+              <Comfort>50</Comfort>
+            </statBases>
+          </value>
+        </li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="NanoArmor"]</xpath>
+          <value>
+            <li Class="CombatExtended.PartialArmorExt">
+              <stats />
+            </li>
+          </value>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="NanoArmor"]/equippedStatOffsets</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="NanoArmor"]</xpath>
+            <value>
+              <equippedStatOffsets />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="NanoArmor"]/equippedStatOffsets</xpath>
+          <value>
+            <equippedStatOffsets>
+              <VacuumResistance>1</VacuumResistance>
+              <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+              <MechBandwidth>120</MechBandwidth>
+              <PainShockThreshold>99999</PainShockThreshold>
+              <MeleeDodgeChance>99999</MeleeDodgeChance>
+              <HuntingStealth>99999</HuntingStealth>
+              <CarryingCapacity>50000</CarryingCapacity>
+              <VEF_MassCarryCapacity>50000</VEF_MassCarryCapacity>
+            </equippedStatOffsets>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>
