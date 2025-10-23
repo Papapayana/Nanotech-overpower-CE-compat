@@ -26,7 +26,7 @@
               <Mass>0.1</Mass>
               <WorkToMake>80</WorkToMake>
               <EnergyShieldRechargeRate>9999</EnergyShieldRechargeRate>
-              <EnergyShieldEnergyMax>99999</EnergyShieldEnergyMax>
+              <EnergyShieldEnergyMax>100</EnergyShieldEnergyMax>
               <EquipDelay>0.1</EquipDelay>
             </statBases>
           </value>

@@ -63,6 +63,7 @@
               <HuntingStealth>99999</HuntingStealth>
               <CarryingCapacity>50000</CarryingCapacity>
               <VEF_MassCarryCapacity>50000</VEF_MassCarryCapacity>
+              <CarryWeight>50000</CarryWeight>
             </equippedStatOffsets>
           </value>
         </li>
